@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agenthub"
+version = "0.1.0"
+description = "Production-minded Agentic RAG copilot: function-calling agent, hybrid RAG, guardrails, HITL, MCP server, evals"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []            # core is stdlib-only on purpose
+
+[project.optional-dependencies]
+server = ["fastapi>=0.110", "uvicorn>=0.29"]
+
+[project.scripts]
+agenthub = "agenthub.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["agenthub*"]
+
+[tool.setuptools.package-data]
+agenthub = ["evals/dataset.jsonl"]
